@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Security Letter — тренажёр почты</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="shell top">
+    <div class="brand"><span class="mark" aria-hidden="true">✓</span> Security Letter</div>
+    <button id="settings-button" class="quiet" type="button">Настройки ИИ</button>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <p class="subtitle">Тренажёр безопасности почты</p>
+      <h1>Проверьте письмо</h1>
+      <p>Потренируйтесь замечать подозрительные детали в рабочей почте.</p>
+    </section>
+    <div id="exercise">
+      <div class="step"><span id="step"></span><progress id="progress" max="3" value="1" aria-labelledby="step"></progress></div>
+      <div class="columns">
+        <article class="card mail" aria-labelledby="subject">
+          <p class="tag">Учебная карточка</p>
+          <h2 id="subject"></h2>
+          <dl id="message"></dl>
+          <div class="mail-body" id="mail-body"></div>
+        </article>
+        <form class="card" id="answers">
+          <fieldset id="fieldset">
+            <legend id="question" tabindex="-1">Что требует проверки?</legend>
+            <p class="hint" id="hint">Отметьте все подходящие признаки.</p>
+            <div id="options"></div>
+          </fieldset>
+          <p id="error" class="error" role="status" hidden></p>
+          <button id="check" class="primary" type="submit">Проверить ответ</button>
+        </form>
+      </div>
+      <section id="feedback" class="card feedback" aria-labelledby="feedback-title" hidden>
+        <h2 id="feedback-title" tabindex="-1"></h2>
+        <ul id="explanations"></ul>
+        <p id="advice"></p>
+        <button id="next" class="primary" type="button"></button>
+      </section>
+    </div>
+    <section id="summary" class="card summary" aria-labelledby="result" hidden>
+      <h2 id="result" tabindex="-1">Тренировка завершена</h2>
+      <p id="score" class="score"></p>
+      <p>Карточек, в которых вы точно определили все признаки.</p>
+      <button id="restart" class="primary" type="button">Пройти ещё раз</button>
+    </section>
+    <footer>Учебные данные · Без рассылок · Без регистрации</footer>
+  </main>
+  <dialog id="settings" aria-labelledby="settings-title">
+    <form method="dialog">
+      <h2 id="settings-title">Настройки ИИ</h2>
+      <p>Провайдер пока не выбран. Тренажёр использует готовые карточки.</p>
+      <label for="api-key">Ключ API</label>
+      <input id="api-key" type="password" disabled placeholder="Появится после подключения" autocomplete="off">
+      <button class="primary">Закрыть</button>
+    </form>
+  </dialog>
+</body>
+</html>
